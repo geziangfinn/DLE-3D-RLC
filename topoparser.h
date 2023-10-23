@@ -270,13 +270,13 @@ TreeNode* topo_generate(float **sink_set, int n){
     //将坐标数组sink_set建立成树节点的集合
     //存入坐标、layer和负载电容
     for (int i=0; i<n; i++){
-        recur_array[i] = convert_to_node(*(*(sink_set+i)),*(*(sink_set+i)+1),(int)*(*(sink_set+i)+2),*(*(sink_set+i)+3), i+1);
+        recur_array[i] = convert_to_node(*(*(sink_set+i)),*(*(sink_set+i)+1),(int)*(*(sink_set+i)+2),*(*(sink_set+i)+3), i);
     }
 
     TreeNode* root =NULL;
     TreeNode* merging_point = NULL;
     int arrsize= n; //用于递归数组长度的迭代
-    int IDindex = 1;
+    int IDindex = 0;
 
     while(arrsize > 1){
         TreeNode *result[2]; //用于存储最小间距点对
@@ -313,7 +313,7 @@ TreeNode* topo_generate(float **sink_set, int n){
 
     }
     //检查路径数组是否有问题
-    print_path(path,conscounter);
+    //print_path(path,conscounter);
 
     //完成二叉树构建
     root = construct(path,conscounter);

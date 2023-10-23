@@ -8,7 +8,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#include <stdbool.h>
+//#include <stdbool.h>
 #include <float.h>
 #include "util.h" //注意文件位置
 #include "topoparser.h"

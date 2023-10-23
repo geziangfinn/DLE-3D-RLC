@@ -5,11 +5,16 @@
 #ifndef ZST_DME_UTIL_H
 #define ZST_DME_UTIL_H
 
-#include <stdbool.h>
+//#include <stdbool.h>
 #include <assert.h>
 #include <stdlib.h>
 #include <math.h>
+#include <memory>
+#include <functional>
+#include <fstream>
+#include <iostream>
 
+using namespace std;
 /**
  * 在阅读以下代码时，需要注意这么几点：
  * 1. 在构建树的时候，先插入左节点，后插入右节点，所以一旦存在一棵子树只有右节点而没有左节点，则说明要么整颗二叉树的构建有问题，要么这棵二叉树没有构建完成
@@ -34,6 +39,7 @@ struct TreeNode{
     float x; //横坐标
     float y; //纵坐标
     int layer; //芯片层
+    pair<int,int> el;
     float C; //load capacitance
     float delay, extra_WL;
     struct TreeNode* father;
